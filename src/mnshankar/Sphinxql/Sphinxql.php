@@ -17,6 +17,14 @@ class Sphinxql
         return $this->library->forge($this->library->getConnection());        
     }
     /**
+     * return the library SphinxQL helper object
+     * @return \Foolz\SphinxQL\Helper
+     */
+    public function helper()
+    {
+        return \Foolz\SphinxQL\Helper::create($this->library->getConnection());
+    }
+    /**
      * set the hits array
      * @param array $hits - the array returned by executing the SphinxQL 
      * @return \mnshankar\Sphinxql\Sphinxql
