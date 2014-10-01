@@ -67,4 +67,22 @@ class Sphinxql
     {
        return $this->library->getConnection()->query($query);
     }
+    /**
+     * avoids having the expressions escaped
+     * @param string $string the string to keep unaltered
+     * @return \Foolz\SphinxQL\Expression the new Expression
+     */
+    public static function expr($string)
+    {
+        return \Foolz\SphinxQL\SphinxQL::expr($string);
+    }
+    /**
+     * escapes the input with \MySQLi::real_escape_string
+     * @param string $value the string to escape
+     * @return string the escaped string
+     */
+    public function escape($value)
+    {
+        return $this->library->getConnection()->escape($value);
+    }
 }
